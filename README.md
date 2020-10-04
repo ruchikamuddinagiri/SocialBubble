@@ -16,6 +16,6 @@ Around the world, the majority of communities often downplay mental issues, some
 
 We also wish for local communities to provide help to those isolating themselves due to being affected by the pandemic providing groups where they can ask for essential needs which they are unable to receive without putting others in danger.
 
-![Visualizations](screenshots/homepage.jpg?raw=true)
+![homepage](screenshots/homepage.jpg?raw=true)
 
 
