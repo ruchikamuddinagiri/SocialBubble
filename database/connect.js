@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-
+const dbString = 'mongodb://127.0.0.1:27017/socialbubble'
 const db = () => {
-  console.log(process.env.DATABASE_URI)
+  console.log(dbString)
   return mongoose
-    .connect(process.env.DATABASE_URI, {
+    .connect(dbString, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,

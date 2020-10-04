@@ -25,7 +25,7 @@ const chatRouter = require('./routers/chatRoutes')
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -99,5 +99,5 @@ io.on('connection', (socket)=>{
 
 //set up server
 server.listen(port, () => {
-    console.log("Server is up on port", process.env.PORT)
+    console.log("Server is up on port", port)
 })  
