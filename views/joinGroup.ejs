@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp</title>
+    <link rel="stylesheet" href="/css/chatstyles.css">
+    <link rel="icon" href="/img/favicon.png">
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous"
+        />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+</head>
+<body style="overflow: hidden;">
+    <div class="row">
+        <div class="col-sm-6">
+            <br>
+            <div class="text-center">
+                <h1>List of available groups</h1>
+                <small>Choose any chat room that you're interested in.</small>
+                <small>Type it in. <i class="fas fa-arrow-right"></i></small>
+                <hr>
+                <ul id="rooms" style="font-size: large;">
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="text-center" style="color: white; background: #333744;">
+                <h3>A few things to remember...</h3>
+                <small>You can choose any username you want.</small>
+                <br>
+                <small>You can't join a chatroom unless your username is unique</small>
+                <br>
+                <small>You can either create a new room or join an existing one.</small>
+            </div>
+            <div class="centered-form">
+                
+                <div class="centered-form__box">
+                    <h1>Join</h1>
+                    <form action="/chatroom" method="">
+                        <label>Display Name</label>
+                        <input type="text" name="username" id="username" placeholder="Display Name" required />
+                        <label>Room</label>
+                        <input type="text" name="room" id="room" placeholder="Chat Room" required />
+                        <button id="join">Join</button>
+                    </form>    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const addInList = (room) => {
+            let ul = document.getElementById("rooms");
+            let li = document.createElement('li')
+            let hr = document.createElement('hr')
+            li.style.listStyle = "decimal inside"
+            li.appendChild(document.createTextNode(room));
+            ul.appendChild(li);
+            ul.appendChild(hr);
+
+        }
+        const apiFetch = async ()=>{
+        const response = await fetch('/allRooms', {
+            method:'GET',
+            credentials: 'same-origin',
+            headers:{
+                'Content-type':'application/json'
+            },
+        })  
+        return response.json()
+    }
+    window.onload = function(){
+        apiFetch().then((response)=>{
+             if(response){
+                const rooms = response.rooms
+                rooms.forEach(room => {
+                    addInList(room)
+                });
+             }
+         })
+    }
+    
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+</body>
+</html>

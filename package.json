@@ -1,0 +1,43 @@
+{
+  "name": "makeuc2020-team1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruchikamuddinagiri/MakeUC2020-team1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bad-words": "^3.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "formidable": "^1.2.2",
+    "ibm-watson": "^5.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.3.0",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ruchikamuddinagiri/MakeUC2020-team1/issues"
+  },
+  "homepage": "https://github.com/ruchikamuddinagiri/MakeUC2020-team1#readme"
+}

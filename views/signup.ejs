@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Bubble</title>
+        <!-- Google fonts-->
+            <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous"
+        />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top" style="background-color: #212529">
+        <div id="background-wrap">
+            <div class="bubble x1"></div>
+            <div class="bubble x2"></div>
+            <div class="bubble x3"></div>
+            <div class="bubble x4"></div>
+            <div class="bubble x5"></div>
+            <div class="bubble x6"></div>
+            <div class="bubble x7"></div>
+            <div class="bubble x8"></div>
+            <div class="bubble x9"></div>
+            <div class="bubble x10"></div>
+        </div>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><h1>BUBBLE</h1></a>
+                <a class="navbar-brand js-scroll-trigger" href="/login"><h1>LOG IN INSTEAD <i class="fas fa-arrow-right"></i></h1></a>
+            </div>
+        </nav>
+        <br>
+        <!-- signup-->
+        <section class="page-section" id="login" style="background: transparent;">
+            <div class="container">
+                <div class="text-center"> 
+                    <h2 class="section-heading text-uppercase">SignUp</h2>
+                </div>
+                <form id="loginForm" name="loginInput" method="POST" action="/signup"  enctype="multipart/form-data">
+                    <div class="row align-items-stretch mb-6">
+                        <div class="col-md-6" style="margin-left: 25%">
+                            <div class="form-group">
+                                <input class="form-control" name="name" id="name" type="text" placeholder="Name" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="email" id="email" type="email" placeholder="Email" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="password" id="password" type="password" placeholder="Enter Password" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="confirm-password" id="confirm-password" type="password" placeholder="Confirm Password" required="required"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div id="success"></div>
+                        <button class="btn btn-primary btn-lg text-uppercase" id="loginsuccessfull" type="submit">Sign Up!</button>
+                        <script>
+                            let password = document.getElementById("password")
+                                , confirm_password = document.getElementById("confirm-password");
+
+                                function validatePassword(){
+                                if(password.value != confirm_password.value) {
+                                    confirm_password.setCustomValidity("Passwords Don't Match");
+                                } else {
+                                    confirm_password.setCustomValidity('');
+                                }
+                                }
+                                password.onchange = validatePassword;
+                                confirm_password.onkeyup = validatePassword;
+                        </script>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- login form JS-->
+        <script src="/assets/mail/jqBootstrapValidation.js"></script>
+        <!-- Core theme JS-->
+        <script src="../makeus_test/startbootstrap-agency-gh-pages/js/scripts.js"></script>
+    </body>
+</html>
