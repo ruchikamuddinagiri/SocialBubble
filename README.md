@@ -16,6 +16,9 @@ Around the world, the majority of communities often downplay mental issues, some
 
 We also wish for local communities to provide help to those isolating themselves due to being affected by the pandemic providing groups where they can ask for essential needs which they are unable to receive without putting others in danger.
 
-![homepage](screenshots/homepage.jpg?raw=true)
-
+How to run this project locally:
+1. Clone this repository
+2. Make sure you have node installed and monodb server running.
+3. Go to the root and run npm install
+4. Run npm run start
 
