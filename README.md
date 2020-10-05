@@ -24,3 +24,4 @@ How to run this project locally:
 3. Go to the root and run npm install
 4. Run npm run start
 
+You can also access the website here [https://socialbubble.herokuapp.com/](https://socialbubble.herokuapp.com/)
