@@ -31,13 +31,13 @@ router.get('/bye', (req, res)=>{
 router.get('/logout', (req, res)=>{
     req.session.destroy((err) => {
         req.logout()
-        cookie = req.cookies;
-        for (var prop in cookie) {
-            if (!cookie.hasOwnProperty(prop)) {
-                continue;
-            }    
-            res.cookie(prop, '', {expires: new Date(0)});
-        }
+        // cookie = req.cookies;
+        // for (var prop in cookie) {
+        //     if (!cookie.hasOwnProperty(prop)) {
+        //         continue;
+        //     }    
+        //     res.cookie(prop, '', {expires: new Date(0)});
+        // }
         res.redirect('/bye') // will always fire after session is destroyed
       })
     // delete req.session;

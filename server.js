@@ -41,10 +41,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     store: sessionStore,
-    unset: "destroy",
-    cookie: {
-        maxAge: 60000
-    }
+    unset: "destroy"
 }));
 app.use(passport.initialize());
 app.use(passport.session());
