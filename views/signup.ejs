@@ -94,5 +94,11 @@
         <script src="/assets/mail/jqBootstrapValidation.js"></script>
         <!-- Core theme JS-->
         <script src="../makeus_test/startbootstrap-agency-gh-pages/js/scripts.js"></script>
+        <script>
+            let perfEntries = performance.getEntriesByType("navigation");
+            if (perfEntries[0].type === "back_forward") {
+                location.reload(true);
+            }
+        </script>
     </body>
 </html>

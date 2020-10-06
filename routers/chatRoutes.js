@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const router = new express.Router()
 const {getAllRooms} = require('../utils/users')
+const auth = require('../middleware/auth')
 
 router.get('/chat', (req, res)=>{
     let user = req.user

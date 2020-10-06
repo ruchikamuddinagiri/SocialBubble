@@ -61,6 +61,11 @@
    
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/chat.js"></script>
-    
+    <script>
+        let perfEntries = performance.getEntriesByType("navigation");
+            if (perfEntries[0].type === "back_forward") {
+                location.reload(true);
+            }
+    </script>
 </body>
 </html>

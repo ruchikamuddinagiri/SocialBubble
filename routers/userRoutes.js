@@ -9,6 +9,7 @@ const router = new express.Router()
 
 const User = require('../database/models/userModel')
 const formParser = require('../middleware/formParser')
+const auth = require('../middleware/auth')
 
 //get routes
 //signup route
@@ -28,13 +29,8 @@ router.get('/bye', (req, res)=>{
 })
 //logout route
 router.get('/logout', (req, res)=>{
-    // req.logout()
-    // req.session = null
-    // res.render('logout.ejs')
     req.session.destroy((err) => {
-        // res.clearCookie('connect.sid');
         req.logout()
-        // console.log(req.sessionID)
         cookie = req.cookies;
         for (var prop in cookie) {
             if (!cookie.hasOwnProperty(prop)) {
@@ -48,7 +44,7 @@ router.get('/logout', (req, res)=>{
     // res.redirect()
 })
 //home route
-router.get('/home',  (req, res)=>{
+router.get('/home', auth, (req, res)=>{
     let user = req.user
     if(!user){
         res.redirect('/')
@@ -60,7 +56,7 @@ router.get('/home',  (req, res)=>{
     })
 })
 //get profile
-router.get('/profile', (req, res)=>{
+router.get('/profile', auth, (req, res)=>{
     let user = req.user
     if(!user){
         res.redirect('/')
@@ -70,7 +66,7 @@ router.get('/profile', (req, res)=>{
     })
 })
 //get groups
-router.get('/groups', (req, res)=>{
+router.get('/groups', auth, (req, res)=>{
     let user = req.user
     if(!user){
         res.redirect('/')
@@ -92,12 +88,12 @@ router.post('/signup', formParser, async (req, res) => {
     }
 })
 
-const validPassword = async (passwordnew, passwordold) => {
-    console.log(passwordnew, passwordold)
-    const match = await bcrypt.compare(passwordnew, passwordold)
-    console.log(match)
-    return match
-}
+// const validPassword = async (passwordnew, passwordold) => {
+//     console.log(passwordnew, passwordold)
+//     const match = await bcrypt.compare(passwordnew, passwordold)
+//     console.log(match)
+//     return match
+// }
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -133,6 +129,8 @@ passport.deserializeUser(function(id, cb) {
 // //successRedirect:'/home',
 router.post('/login', [formParser, passport.authenticate('local', {session: true, failureRedirect: '/login'})], (req, res) => {
     console.log('You are logged in!');
+    req.session.user = req.user
+    console.log(req.session.user)
     res.redirect('/home')
 });
 
